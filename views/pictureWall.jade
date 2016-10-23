@@ -1,0 +1,25 @@
+doctype html
+html
+   include ./layout
+   link(rel='stylesheet',href='/css/pictureWall.css')
+   script(src='/js/pictureWall.js')
+   body
+      header
+         div.tab.pointer 顶部
+         div.tab.pointer 底部
+      main.pointer
+         - var len=data.length;
+         - for(var i=0;i<len;i++)
+            div.img-box
+               div.title
+                  table
+                     tr
+                        td #{data[i].title}
+               a(href="/pictureWall/#{data[i].id}")
+                  div.img-path-box
+                     img.img-path(src='#{data[i].path}1.#{data[i].type}')
+               div.sub
+                  table
+                     tr
+                        td #{data[i].count}张
+
